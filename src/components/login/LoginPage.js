@@ -30,6 +30,7 @@ const getData = (e) => {
     try {
       const response = await axios.post('http://localhost:8000/auth', newSetData);
       console.log(response.data)
+      
     }catch (err){
       console.error(err);
     }
