@@ -11,13 +11,11 @@ import Navbar from '../pages/Navbar';
 export default function AppRouter(){
     return (
      <Router>
-        <Navbar/>
          <Switch>
-         
+         <Route path="/home" component={HomePage}/>  
          <Route path="/products" component={ProductsPage}/>
          <Route path="/orders" component={OrdersPage}/>
          <Route path="/users/:username" component={UsersPage}/>
-         <Route path="/home" component={HomePage}/>
          <Route exact path="/" component={LoginPage}/>
          <Route path="*" component={NotFoundPage}/>
         </Switch>
