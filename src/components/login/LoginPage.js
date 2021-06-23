@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect} from 'react';
 import '../../assets/Login.css';
+import { useHistory } from 'react-router-dom';
 
 const axios = require ('axios');
 
@@ -20,33 +21,34 @@ const handleInputChange = (e) => {
 const getData = (e) => {
   e.preventDefault()
   
-  const postRequestAuth = async () => {
+  const postRequestAuth = () => {
 
     const newSetData = {
       email: data.email,
       password: data.password
     }
-
-    try {
-      const response = await axios.post('http://localhost:8000/auth', newSetData);
-      console.log(response.data)
-      
-    }catch (err){
-      console.error(err);
-    }
+    axios.post('auth', newSetData)
+    .then(res => {
+      console.log(res)
+      localStorage.setItem('token', res.data.token);
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
   postRequestAuth();
 }
-
+let history = useHistory();
 
   return(
     <Fragment>
       <div className='section-login'>
-        <form onSubmit={getData} className='form-login'> 
+        
           <div className="my-1">
             <button
               className="btnLogin"
               type="submit"
+              
             >Login</button>
             <button
               className="btnLogin"
@@ -55,10 +57,11 @@ const getData = (e) => {
           </div>
           <div className="my-3">
            <h1 className="titleLogin">Bienvenidx</h1>
-            <h3 className="subtitleLogin my-1">Ingresa a tu cuenta</h3> 
-          </div>          
+            <h3 className="subtitleLogin my-1">Ingresa a tu cuenta</h3>
+          </div>
+          <form onSubmit={getData} className='form-login'> 
           <div>
-            <label className="labelEmail">Usuario</label><br></br>            
+            <label className="labelEmail">Usuario</label><br></br>
             <input
               type="email"
               name= "email"
@@ -79,6 +82,9 @@ const getData = (e) => {
             <button
               className="btnLogin my-2"
               type="submit"
+              onClick={() => {
+                history.push("/products");
+              }}
             >Ok</button>
           </div>
           <button className="btnGoogle my-1">

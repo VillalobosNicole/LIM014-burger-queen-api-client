@@ -1,10 +1,14 @@
-// import AppRouter from "./routers/AppRouter";
+import AppRouter from "./routers/AppRouter";
 import LoginPage from "./components/login/LoginPage"
+import { Fragment } from 'react'; 
 
 function App() {
   return (
-    // <AppRouter />
+    <Fragment>
+      <AppRouter />
     <LoginPage />
+    </Fragment>
+    
   );
 }
 
