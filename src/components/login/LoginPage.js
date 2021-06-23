@@ -1,14 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Fragment, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../../assets/Login.css';
 
 const axios = require ('axios');
 
 const Login = () => {
+let history = useHistory();  
 const [data, setData] = useState({ 
   email: '',
   password: ''
 })
+
+const [admin , setAdmin] = useState(false)
 
 const handleInputChange = (e) => {
   // console.log(e.target.value)
@@ -20,19 +24,25 @@ const handleInputChange = (e) => {
 const getData = (e) => {
   e.preventDefault()
   
-  const postRequestAuth = async () => {
+  const postRequestAuth = () => {
 
     const newSetData = {
       email: data.email,
       password: data.password
     }
 
-    try {
-      const response = await axios.post('http://localhost:8000/auth', newSetData);
-      console.log(response.data)
-    }catch (err){
-      console.error(err);
-    }
+    // try {
+      // const response = await 
+      axios.post('http://localhost:8000/auth', newSetData).then( res => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token)
+        if (admin === false) {
+          history.push("/home");
+        }
+      } )
+      .catch (err =>{
+      console.log(err);
+    })
   }
   postRequestAuth();
 }
@@ -42,7 +52,7 @@ const getData = (e) => {
     <Fragment>
       <div className='section-login'>
         <form onSubmit={getData} className='form-login'> 
-          <div className="my-1">
+       {/*    <div className="my-1">
             <button
               className="btnLogin"
               type="submit"
@@ -51,7 +61,7 @@ const getData = (e) => {
               className="btnLogin"
               type="submit"
             >Regístrate</button>
-          </div>
+          </div> */}
           <div className="my-3">
            <h1 className="titleLogin">Bienvenidx</h1>
             <h3 className="subtitleLogin my-1">Ingresa a tu cuenta</h3> 

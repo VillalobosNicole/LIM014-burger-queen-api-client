@@ -13,11 +13,11 @@ export default function AppRouter(){
      <Router>
         <Navbar/>
          <Switch>
-         <Route path="/login" component={LoginPage}/>
+         <Route path="/home" component={HomePage}/>
          <Route path="/products" component={ProductsPage}/>
          <Route path="/orders" component={OrdersPage}/>
          <Route path="/users/:username" component={UsersPage}/>
-         <Route exact path="/" component={HomePage}/>
+         <Route exact path="/" component={LoginPage}/>
          <Route path="*" component={NotFoundPage}/>
         </Switch>
        </Router>
