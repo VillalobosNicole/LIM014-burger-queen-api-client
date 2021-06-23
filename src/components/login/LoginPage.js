@@ -87,11 +87,10 @@ const getData = (e) => {
           </button>
           <p className="btn-text">Términos, condiciones y política de privacidad</p>
           <div>            
-          </div>       
+          </div>
         </form>
       </div>
     </Fragment>
-   
   );
 }
 
