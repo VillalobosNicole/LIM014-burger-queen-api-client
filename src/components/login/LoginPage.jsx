@@ -12,10 +12,6 @@ const Login = () => {
     password: "",
   });
 
- /*  function handlePush(route) {
-    history.push(route)
-  } */
-
   const [admin, setAdmin] = useState(false);
 
   const handleInputChange = (e) => {
@@ -54,16 +50,6 @@ const Login = () => {
     <Fragment>
       <div className="section-login">
         <form onSubmit={getData} className="form-login">
-          {/*    <div className="my-1">
-            <button
-              className="btnLogin"
-              type="submit"
-            >Login</button>
-            <button
-              className="btnLogin"
-              type="submit"
-            >Regístrate</button>
-          </div> */}
           <div className="my-3">
             <h1 className="titleLogin">Bienvenidx</h1>
             <h3 className="subtitleLogin my-1">Ingresa a tu cuenta</h3>
