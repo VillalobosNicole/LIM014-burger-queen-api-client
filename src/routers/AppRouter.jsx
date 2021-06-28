@@ -5,7 +5,7 @@ import OrdersPage from '../components/kitchen/OrdersPage';
 import UsersPage from '../components/admin/users/UsersPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
-import Navbar from '../pages/Navbar';
+// import Navbar from '../pages/Navbar';
 
 
 export default function AppRouter(){
