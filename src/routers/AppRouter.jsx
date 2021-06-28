@@ -5,7 +5,8 @@ import OrdersPage from '../components/kitchen/OrdersPage';
 import UsersPage from '../components/admin/users/UsersPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
-import Navbar from '../pages/Navbar';
+import WaiterPage from '../components/waiter/WaiterPage'
+import Menu from '../components/MenuOrders'
 
 
 export default function AppRouter(){
@@ -16,6 +17,8 @@ export default function AppRouter(){
          <Route path="/products" component={ProductsPage}/>
          <Route path="/orders" component={OrdersPage}/>
          <Route path="/users/:username" component={UsersPage}/>
+         <Route path ="/waiter" component={WaiterPage}/>
+         <Route path ="/MenuOrders" component={Menu}/>
          <Route exact path="/" component={LoginPage}/>
          <Route path="*" component={NotFoundPage}/>
         </Switch>

@@ -19,7 +19,6 @@ export default function Navbar() {
                 <li>
                     <NavLink to="/register" activeClassName="active">Register</NavLink>
                 </li>
-               
             </ul>
         </nav>
     )
